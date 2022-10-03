@@ -6,11 +6,10 @@ const Home = () => {
     const cocktails = useLoaderData();
     console.log(cocktails?.drinks);
     return (
-      <div>
+      <div className="grid grid-cols-3 gap-8 m-10">
         {cocktails?.drinks.map((cocktail) => (
           <Coctail key={cocktail?.idDrink} cocktail={cocktail}></Coctail>
         ))}
-        <p>Home</p>
       </div>
     );
 };
