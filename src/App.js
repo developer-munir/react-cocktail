@@ -15,9 +15,13 @@ function App() {
       children: [
         {
           path: '/',
-          element: <Home></Home>
-          
-      },
+          loader: async () => {
+            return fetch(
+              "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+              );
+            }, 
+            element: <Home></Home>
+          },
         {
           path: "/alcoholic",
           element: <Alcoholic></Alcoholic>,
