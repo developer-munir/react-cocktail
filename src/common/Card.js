@@ -3,7 +3,7 @@ import React from "react";
 const Card = ({ cocktail }) => {
   const { strDrink, strDrinkThumb } = cocktail;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl" data-aos="zoom-out">
       <figure>
         <img src={strDrinkThumb} alt="Shoes" />
       </figure>

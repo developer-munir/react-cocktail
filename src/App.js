@@ -7,7 +7,14 @@ import Gin from '../src/components/Gin/Gin';
 import Vodka from '../src/components/Vodka/Vodka';
 import OrdinaryDrink from '../src/components/OrdinaryDrink/OrdinaryDrink';
 import Home from './components/Home/Home';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 function App() {
+   useEffect(() => {
+     AOS.init();
+     AOS.refresh();
+   }, []);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,18 +40,34 @@ function App() {
         },
         {
           path: "/nonalcoholic",
+          loader: async () => {
+            return fetch(
+              "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
+            );
+          },
           element: <NonAlcoholic></NonAlcoholic>,
         },
         {
           path: "/gin",
+          loader: async () => {
+            return fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin')
+          },
           element: <Gin></Gin>,
         },
         {
           path: "/vodka",
+          loader: async () => {
+            return fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka');
+          },
           element: <Vodka></Vodka>,
         },
         {
           path: "/ordinarydrink",
+          loader: async () => {
+            return fetch(
+              "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink"
+            );
+          },
           element:<OrdinaryDrink></OrdinaryDrink>
         },
       ],
