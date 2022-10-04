@@ -5,7 +5,7 @@ import Coctail from './Cocktail/Coctail';
 const Home = () => {
     const cocktails = useLoaderData();
     return (
-      <div className="grid md:grid-cols-3 gap-4 m-10">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 m-10">
         {cocktails?.drinks.map((cocktail) => (
           <Coctail key={cocktail?.idDrink} cocktail={cocktail}></Coctail>
         ))}

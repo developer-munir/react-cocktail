@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div className='overflow-hidden'>
             <Header></Header>
             <Outlet></Outlet>
         </div>
